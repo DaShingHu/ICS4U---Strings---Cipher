@@ -1,0 +1,77 @@
+
+
+
+class Vigenere {
+    /*
+      Author: Dustin Hu
+      Date: 15-10-2014
+      Purpose: To hold the key
+      Fields: 
+          Key
+    */
+
+    protected String key;
+
+    public Vigenere(String key){
+	this.key = key;
+    }
+    
+}
+
+public class Crypto{
+    /*
+      Author: Dustin Hu
+      Date: 15-10-2014
+      Purpose: To decipher and encrypt a file
+
+      Fields: 
+          key: A vinegre key
+      Methods:
+          decrypt: Takes in a string and decrypts said string
+          encrypt: Takes in a string and encrypts said string
+     */
+    protected Vigenere key;
+
+    public static void main(String[] args) {
+	Crypto a = new Crypto ("ics4u");
+	String input = "Hello there";
+	String output = a.encrypt(input);
+	// System.out.println(output.length());
+	// System.out.println(input.length());
+	
+	System.out.println(output);
+    }
+
+    public String decrypt(String input){
+	// Author: Dustin Hu
+	// Date: 15-10-2014
+	// Purpose: To decrypt x
+    }
+
+    public String encrypt(String input){
+	// Author: DUstin Hu
+	// Date: 15-10-2014
+	// Purpose: To encrypt a string
+	// Input: THe string to encrypt
+	// Output: THe encrypted string
+	
+	String output = "";
+	int current;
+	int offset;
+	int result;
+	for (int i = 0; i < input.length(); i++){
+	    current = (int) input.charAt(i);
+	    offset = (int) this.key.key.charAt(i % this.key.key.length()) - 32;
+	    result = current + offset;
+	    if (result > 126){
+		result = result - 95;
+	    }
+	    output = output + (char) result;
+	}
+	return output;
+    }
+
+    public Crypto(String key){
+	this.key = new Vigenere(key);
+    }
+}
